@@ -1,8 +1,8 @@
 {
   "name": "techNotes-frontend",
   "private": true,
+  "type": "commonjs",
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

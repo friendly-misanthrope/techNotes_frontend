@@ -2,6 +2,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Public from './components/Public';
 import Login from './components/Login';
+import Layout from './components/Layout'
 import DashboardLayout from './components/DashboardLayout';
 
 const App = () => {

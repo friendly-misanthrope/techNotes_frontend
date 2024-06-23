@@ -5,14 +5,14 @@ const Public = () => {
     <section className="public">
       <header>
         <h1>
-          Welcome to{" "}
-          <span className="nowrap">Welcome to Leo's Repair Shop!</span>
+          Welcome to
+          <span className="nowrap"> Leo's Repair Shop!</span>
         </h1>
       </header>
 
       <main className="public__main">
         <p>
-          Located in Beautiful Seattle WA, Leo's Repair Shop provides a trained
+          Located in Beautiful Seattle, WA, Leo's Repair Shop provides a trained
           staff ready to meet your device repair needs.
         </p>
         <address className="public__addr">

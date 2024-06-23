@@ -1,4 +1,4 @@
-import { fontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ const DashboardFooter = () => {
         title="Home"
         onClick={ onGoHomeClicked } 
         >
-        <fontAwesomeIcon icon={ faHouse } />
+        <FontAwesomeIcon icon={ faHouse } />
       </button>
     );
   }
