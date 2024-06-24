@@ -5,6 +5,8 @@ import Login from './features/auth/Login';
 import Layout from './components/Layout'
 import DashboardLayout from './components/DashboardLayout';
 import Welcome from './features/auth/Welcome';
+import NotesList from './features/notes/notesList';
+import UsersList from './features/users/UsersList';
 
 const App = () => {
   return (
@@ -15,6 +17,12 @@ const App = () => {
         {/* Protected routes */}
         <Route path="/dashboard" element={ <DashboardLayout /> }>
           <Route index element={<Welcome />} />
+          <Route path="/notes">
+            <Route index element={<NotesList />} />
+          </Route>
+          <Route path="/users">
+            <Route index element={<UsersList />} />
+          </Route>
         </Route>
       </Route>
     </Routes>
