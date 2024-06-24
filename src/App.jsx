@@ -11,7 +11,10 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={ <Public /> } />
         <Route path="/login" element={ <Login /> } />
+        {/* Protected routes */}
+        <Route path="/dashboard" element={ <DashboardLayout /> }>
 
+        </Route>
       </Route>
     </Routes>
   );
