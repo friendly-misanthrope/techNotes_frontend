@@ -17,13 +17,14 @@ const App = () => {
         {/* Protected routes */}
         <Route path="/dashboard" element={ <DashboardLayout /> }>
           <Route index element={<Welcome />} />
-          <Route path="/notes">
+          <Route path="/dashboard/notes">
             <Route index element={<NotesList />} />
           </Route>
-          <Route path="/users">
+          <Route path="/dashboard/users">
             <Route index element={<UsersList />} />
           </Route>
         </Route>
+        {/* End protected routes */}
       </Route>
     </Routes>
   );
