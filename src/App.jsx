@@ -4,6 +4,7 @@ import Public from './components/Public';
 import Login from './features/auth/Login';
 import Layout from './components/Layout'
 import DashboardLayout from './components/DashboardLayout';
+import Welcome from './features/auth/Welcome';
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
         <Route path="/login" element={ <Login /> } />
         {/* Protected routes */}
         <Route path="/dashboard" element={ <DashboardLayout /> }>
-
+          <Route index element={<Welcome />} />
         </Route>
       </Route>
     </Routes>
