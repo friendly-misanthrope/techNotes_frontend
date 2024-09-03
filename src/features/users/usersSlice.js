@@ -32,10 +32,31 @@ export const usersSlice = apiSlice.injectEndpoints({
           return [{ type: 'User', id: 'USERSLIST' }]
         }
       }
-    })
+    }),
+    
   })
 })
 
 export const {
   useGetUsersQuery
 } = usersSlice;
+
+// Returns query result object
+export const selectUsersResult = usersSlice.endpoints.getUsers.select();
+
+// Creates memoized selector
+const selectUsersData = createSelector(
+  selectUsersResult,
+  // usersResult is a normalized state object with ids & entities
+  (usersResult) => usersResult.data
+);
+
+export const {
+  selectAll: selectAllUsers,
+  selectById: selectUserById,
+  selectIds: selectUserIds
+  // Passes a selector into getSelectors() that returns
+  // the users state slice if data exists, otherwise initialState
+} = usersAdapter.getSelectors((state) => {
+  selectUsersData(state) ?? initialState
+});
