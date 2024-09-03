@@ -1,5 +1,5 @@
-import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
-import { apiSlice } from "../../app/api/apiSlice";
+import { createSelector, createEntityAdapter } from '@reduxjs/toolkit';
+import { apiSlice } from '../../app/api/apiSlice';
 
 const notesAdapter = createEntityAdapter({});
 
@@ -23,20 +23,35 @@ export const notesSlice = apiSlice.injectEndpoints({
       providesTags: (result, error, arg) => {
         if (result?.ids) {
           return [
-            { type: 'Note', id: 'NOTESLIST' },
+            { type: 'note', id: 'LIST' },
             ...result.ids.map((id) => (
-              { type: 'Note', id }
+              { type: 'note', id }
             ))
           ]
         } else {
-          return [{ type: 'Note', id: 'NOTESLIST' }]
+          return [{ type: 'note', id: 'LIST' }]
         }
       }
     }),
-
+    
   })
-})
+});
 
 export const {
   useGetNotesQuery
 } = notesSlice;
+
+export const selectNotesResult = notesSlice.endpoints.getNotes.select();
+
+const selectNotesData = createSelector(
+  selectNotesResult,
+  (notesResult) => notesResult.data
+);
+
+export const {
+  selectAll: selectAllNotes,
+  selectById: selectNoteById,
+  selectIds: selectNoteIds
+} = notesAdapter.getSelectors((state) => {
+  selectNotesData(state) ?? initialState
+});
