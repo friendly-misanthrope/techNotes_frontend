@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const DashboardHeader = () => {
+const DashboardHeaderView = () => {
   const content = (
     <header className="dash-header">
       <div className="dash-header__container">
@@ -16,4 +16,4 @@ const DashboardHeader = () => {
   return content;
 }
 
-export default DashboardHeader;
+export default DashboardHeaderView;

@@ -1,27 +1,27 @@
 // import CSS and components here
 import { Routes, Route } from 'react-router-dom';
-import Public from './components/Public';
-import Login from './features/auth/Login';
+import PublicView from './components/PublicView';
+import LoginView from './features/auth/LoginView';
 import Layout from './components/Layout'
 import DashboardLayout from './components/DashboardLayout';
-import Welcome from './features/auth/Welcome';
-import NotesList from './features/notes/notesList';
-import UsersList from './features/users/UsersList';
+import DashboardView from './features/auth/DashboardView';
+import NotesView from './features/notes/NotesView';
+import UsersView from './features/users/UsersView'
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={ <Public /> } />
-        <Route path="/login" element={ <Login /> } />
+        <Route index element={ <PublicView /> } />
+        <Route path="/login" element={ <LoginView /> } />
         {/* Protected routes */}
         <Route path="/dashboard" element={ <DashboardLayout /> }>
-          <Route index element={<Welcome />} />
+          <Route index element={<DashboardView />} />
           <Route path="/dashboard/notes">
-            <Route index element={<NotesList />} />
+            <Route index element={<NotesView />} />
           </Route>
           <Route path="/dashboard/users">
-            <Route index element={<UsersList />} />
+            <Route index element={<UsersView/>} />
           </Route>
         </Route>
         {/* End protected routes */}

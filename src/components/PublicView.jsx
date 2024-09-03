@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Public = () => {
+const PublicView = () => {
   const content = (
     <section className="public">
       <header>
@@ -36,4 +36,4 @@ const Public = () => {
   return content;
 };
 
-export default Public;
+export default PublicView;

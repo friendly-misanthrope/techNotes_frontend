@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Welcome = () => {
+const DashboardView = () => {
   const date = new Date();
   const today = new Intl.DateTimeFormat("en-US", {
     dateStyle: "full",
@@ -23,4 +23,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default DashboardView;

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-const DashboardFooter = () => {
+const DashboardFooterView = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -32,4 +32,4 @@ const DashboardFooter = () => {
   );
 }
 
-export default DashboardFooter;
+export default DashboardFooterView;
