@@ -23,14 +23,13 @@ const DashboardFooter = () => {
       </button>
     );
   }
-  const content = (
+  return (
     <footer className="dash-footer">
       { goHomeButton }
       <p>Current User:</p>
       <p>Status:</p>
     </footer>
   );
-  return content;
 }
 
 export default DashboardFooter;
