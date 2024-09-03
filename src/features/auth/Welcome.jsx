@@ -7,7 +7,7 @@ const Welcome = () => {
     timeStyle: "long",
   }).format(date);
 
-  const content = (
+  return (
     <section className="welcome">
       <p>{today}</p>
 
@@ -21,7 +21,6 @@ const Welcome = () => {
       </p>
     </section>
   );
-  return content;
 };
 
 export default Welcome;
