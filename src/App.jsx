@@ -13,14 +13,14 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={ <PublicView /> } />
-        <Route path="/login" element={ <LoginView /> } />
+        <Route path="login" element={ <LoginView /> } />
         {/* Protected routes */}
-        <Route path="/dashboard" element={ <DashboardLayout /> }>
+        <Route path="dashboard" element={ <DashboardLayout /> }>
           <Route index element={<DashboardView />} />
-          <Route path="/dashboard/notes">
+          <Route path="notes">
             <Route index element={<NotesView />} />
           </Route>
-          <Route path="/dashboard/users">
+          <Route path="users">
             <Route index element={<UsersView/>} />
           </Route>
         </Route>
