@@ -1,4 +1,5 @@
 import { useGetUsersQuery } from "./usersSlice";
+import UserView from "./UserView";
 
 const UsersView = () => {
   const {
@@ -27,7 +28,7 @@ const UsersView = () => {
     const { ids } = users;
     const usersTable = ids?.length
       ? ids.map((userId) => {
-          // todo: put User component here
+          <UserView key={userId} userId={userId} />
         })
       : null;
 
