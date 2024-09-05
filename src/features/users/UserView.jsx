@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUserById } from './usersSlice';
 
-const UserView = ({userId}) => {
+const UserView = ({ userId }) => {
   // Hooks
-  const user = useSelector(state => selectUserById(state, userId))
+  const user = useSelector((state) => selectUserById(state, userId));
   const navigate = useNavigate();
 
   if (user) {
