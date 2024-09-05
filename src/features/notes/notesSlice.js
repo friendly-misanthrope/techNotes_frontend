@@ -52,6 +52,6 @@ export const {
   selectAll: selectAllNotes,
   selectById: selectNoteById,
   selectIds: selectNoteIds
-} = notesAdapter.getSelectors((state) => {
+} = notesAdapter.getSelectors((state) => 
   selectNotesData(state) ?? initialState
-});
+);

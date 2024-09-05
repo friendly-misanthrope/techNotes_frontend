@@ -13,7 +13,7 @@ const PublicView = () => {
       <main className="public__main">
         <p>
           Located in Beautiful Seattle, WA, Leo's Repair Shop provides a trained
-          staff ready to meet your device repair needs.
+          staff ready to meet all your device repair needs.
         </p>
         <address className="public__addr">
           Leo's Repair Shop
@@ -25,7 +25,7 @@ const PublicView = () => {
           <a href="tel: +12065552100">(206) 555-2100</a>
         </address>
         <br />
-        <p>Owner: Leo Nidas</p>
+        <p>Owner: Leonidas</p>
       </main>
 
       <footer>
