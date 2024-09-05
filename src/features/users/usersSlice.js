@@ -57,6 +57,4 @@ export const {
   selectIds: selectUserIds
   // Passes a selector into getSelectors() that returns
   // the users state slice if data exists, otherwise initialState
-} = usersAdapter.getSelectors((state) => {
-  selectUsersData(state) ?? initialState
-});
+} = usersAdapter.getSelectors(state => selectUsersData(state) ?? initialState)

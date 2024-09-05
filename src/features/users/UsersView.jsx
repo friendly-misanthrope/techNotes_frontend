@@ -1,5 +1,6 @@
 import { useGetUsersQuery } from "./usersSlice";
 import UserView from "./UserView";
+import { BallTriangle } from "react-loader-spinner";
 
 const UsersView = () => {
   const {
@@ -27,9 +28,9 @@ const UsersView = () => {
   } else if (isSuccess) {
     const { ids } = users;
     const usersTable = ids?.length
-      ? ids.map((userId) => {
+      ? ids.map((userId) => 
           <UserView key={userId} userId={userId} />
-        })
+        )
       : null;
 
     content = (
