@@ -6,7 +6,7 @@ import Layout from './components/Layout'
 import DashboardLayout from './components/DashboardLayout';
 import DashboardView from './features/auth/DashboardView';
 import NotesView from './features/notes/NotesView';
-import UsersView from './features/users/UsersView'
+import UsersTableView from './features/users/UsersTableView'
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
             <Route index element={<NotesView />} />
           </Route>
           <Route path="users">
-            <Route index element={<UsersView/>} />
+            <Route index element={<UsersTableView/>} />
           </Route>
         </Route>
         {/* End protected routes */}

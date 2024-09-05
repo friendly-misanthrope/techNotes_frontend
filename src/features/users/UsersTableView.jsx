@@ -1,8 +1,8 @@
 import { useGetUsersQuery } from "./usersSlice";
-import UserView from "./UserView";
+import UserRowView from "./UserRowView";
 import { BallTriangle } from "react-loader-spinner";
 
-const UsersView = () => {
+const UsersTableView = () => {
   const {
     data: users,
     isLoading,
@@ -29,7 +29,7 @@ const UsersView = () => {
     const { ids } = users;
     const usersTable = ids?.length
       ? ids.map((userId) => 
-          <UserView key={userId} userId={userId} />
+          <UserRowView key={userId} userId={userId} />
         )
       : null;
 
@@ -56,4 +56,4 @@ const UsersView = () => {
   return content;
 };
 
-export default UsersView;
+export default UsersTableView;
