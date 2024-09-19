@@ -1,5 +1,6 @@
 import { useGetNotesQuery } from "./notesSlice";
 import { BallTriangle } from "react-loader-spinner";
+import NoteRowView from "./NoteRowView";
 
 const NotesView = () => {
   const {
@@ -28,8 +29,8 @@ const NotesView = () => {
   } else if (isSuccess) {
     const { ids } = notes;
     const notesTable = ids?.length ?
-      ids.map((noteId)
-    // todo: Note component goes here
+      ids.map((noteId) =>
+    <NoteRowView key={noteId} noteId={noteId} />
     )
     : null
 

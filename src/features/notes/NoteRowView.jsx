@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectNoteById } from "./notesSlice";
 
-const NotesRowView = ({noteId}) => {
+const NoteRowView = ({noteId}) => {
 
   const note = useSelector((state) => selectNoteById(state, noteId));
   const navigate = useNavigate();
@@ -38,4 +38,4 @@ const NotesRowView = ({noteId}) => {
     )
   } else return null;
 }
-export default NotesRowView;
+export default NoteRowView;
