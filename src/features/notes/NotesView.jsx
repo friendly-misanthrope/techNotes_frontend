@@ -34,7 +34,7 @@ const NotesView = () => {
     : null
 
     content = (
-      <table className="tabel table--notes">
+      <table className="table table--notes">
         <thead className="table__thead">
           <tr>
             <th scope="col" className="table__th note__status">
