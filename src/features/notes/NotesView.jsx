@@ -35,25 +35,25 @@ const NotesView = () => {
     : null
 
     content = (
-      <table className="table table--notes">
-        <thead className="table__thead">
+      <table className="table">
+        <thead>
           <tr>
-            <th scope="col" className="table__th note__status">
-              Username
+            <th scope="col">
+              Status
             </th>
-            <th scope="col" className="table__th note__created">
+            <th scope="col">
               Created
             </th>
-            <th scope="col" className="table__th note__updated">
+            <th scope="col">
               Updated
             </th>
-            <th scope="col" className="table__th note__title">
+            <th scope="col">
               Title
             </th>
-            <th scope="col" className="table__th note__username">
+            <th scope="col">
               Assigned to
             </th>
-            <th scope="col" className="table__th note__edit">
+            <th scope="col">
               Edit
             </th>
           </tr>

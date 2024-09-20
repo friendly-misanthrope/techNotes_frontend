@@ -15,20 +15,20 @@ const NoteRowView = ({noteId}) => {
     const handleNoteEdit = () => navigate(`/dashboard/notes/${note._id}`);
 
     return (
-      <tr className="table__row">
-        <td className="table__cell note__status">
+      <tr>
+        <td>
           {
             note.isCompleted ?
               <span className="note__status--completed">Closed</span>
               : <span className="note__status--open">Open</span>
           }
         </td>
-        <td className="table__cell note__created">{createdAt}</td>
-        <td className="table__cell note__updated">{updatedAt}</td>
-        <td className="table__cell note__title">{note.title}</td>
-        <td className="table__cell note__username">{note.assignedUser.username}</td>
+        <td>{createdAt}</td>
+        <td>{updatedAt}</td>
+        <td>{note.title}</td>
+        <td>{note.assignedUser.username}</td>
 
-        <td className="table__cell">
+        <td>
           <button className="icon-button table__button"
           onClick={handleNoteEdit}>
             <FontAwesomeIcon icon={faPenToSquare} />
