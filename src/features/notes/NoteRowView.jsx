@@ -9,6 +9,8 @@ const NoteRowView = ({noteId}) => {
   const note = useSelector((state) => selectNoteById(state, noteId));
   const navigate = useNavigate();
 
+  console.log(note)
+
   if (note) {
     const createdAt = new Date(note.createdAt).toLocaleString('en-US', {day: "numeric", month: "long"});
     const updatedAt = new Date(note.updatedAt).toLocaleString('en-US', {day: "numeric", month: "long"});
@@ -18,7 +20,7 @@ const NoteRowView = ({noteId}) => {
       <tr className="table__row">
         <td className="table__cell note__status">
           {
-            note.isComplete ?
+            note.isCompleted ?
               <span className="note__status--completed">Closed</span>
               : <span className="note__status--open">Open</span>
           }
@@ -26,7 +28,7 @@ const NoteRowView = ({noteId}) => {
         <td className="table__cell note__created">{createdAt}</td>
         <td className="table__cell note__updated">{updatedAt}</td>
         <td className="table__cell note__title">{note.title}</td>
-        <td className="table__cell note__username">{note.assignedUser}</td>
+        <td className="table__cell note__username">{note.assignedUser.username}</td>
 
         <td className="table__cell">
           <button className="icon-button table__button"

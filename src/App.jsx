@@ -19,6 +19,7 @@ const App = () => {
           <Route index element={<DashboardView />} />
           <Route path="notes">
             <Route index element={<NotesView />} />
+            {/* Todo: create page for viewing a single note in full */}
           </Route>
           <Route path="users">
             <Route index element={<UsersTableView/>} />
