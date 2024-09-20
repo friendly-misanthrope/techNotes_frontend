@@ -16,8 +16,17 @@ const FullNoteView = () => {
     }
   }, [note]);
 
-  const { title, isCompleted, assignedUser, createdAt, updatedAt, content } =
-    noteData;
+  const {
+    title,
+    isCompleted,
+    assignedUser,
+    createdAt,
+    updatedAt,
+    content
+  } = noteData;
+
+  const created = new Date(note.createdAt).toLocaleString('en-US', {day: "numeric", month: "long"});
+  const updated = new Date(note.updatedAt).toLocaleString('en-US', {day: "numeric", month: "long"});
 
   return (
     <div className="note-container">
@@ -44,8 +53,8 @@ const FullNoteView = () => {
               }
             </td>
             <td>{assignedUser?.username}</td>
-            <td>{createdAt}</td>
-            <td>{updatedAt}</td>
+            <td>{created}</td>
+            <td>{updated}</td>
             <td>{content}</td>
           </tr>
         </tbody>
