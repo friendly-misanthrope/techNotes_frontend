@@ -213,6 +213,10 @@ a:focus-visible {
   font-weight: bold;
 }
 
+.note-click {
+  cursor: pointer;
+}
+
 
 /* || FORM - GENERAL */
 

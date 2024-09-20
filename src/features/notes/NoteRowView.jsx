@@ -9,13 +9,17 @@ const NoteRowView = ({noteId}) => {
   const note = useSelector((state) => selectNoteById(state, noteId));
   const navigate = useNavigate();
 
+  const onNoteClick = () => {
+    navigate(`/dashboard/notes/${noteId}`)
+  }
+
   if (note) {
     const createdAt = new Date(note.createdAt).toLocaleString('en-US', {day: "numeric", month: "long"});
     const updatedAt = new Date(note.updatedAt).toLocaleString('en-US', {day: "numeric", month: "long"});
     const handleNoteEdit = () => navigate(`/dashboard/notes/${note._id}`);
 
     return (
-      <tr>
+      <tr className="note-click" onClick={onNoteClick}>
         <td>
           {
             note.isCompleted ?
