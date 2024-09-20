@@ -19,7 +19,7 @@ const NoteRowView = ({noteId}) => {
         <td>
           {
             note.isCompleted ?
-              <span className="note__status--completed">Closed</span>
+              <span className="note__status--completed">Complete</span>
               : <span className="note__status--open">Open</span>
           }
         </td>

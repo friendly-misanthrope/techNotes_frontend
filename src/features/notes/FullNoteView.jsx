@@ -25,8 +25,8 @@ const FullNoteView = () => {
     content
   } = noteData;
 
-  const created = new Date(note.createdAt).toLocaleString('en-US', {day: "numeric", month: "long"});
-  const updated = new Date(note.updatedAt).toLocaleString('en-US', {day: "numeric", month: "long"});
+  const created = new Date(createdAt).toLocaleString('en-US', {day: "numeric", month: "long"});
+  const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long"});
 
   return (
     <div className="note-container">

@@ -205,10 +205,12 @@ a:focus-visible {
 
 .note__status--open {
   color: var(--STATUS-OPEN);
+  font-weight: bold;
 }
 
 .note__status--completed {
   color: var(--STATUS-COMPLETE);
+  font-weight: bold;
 }
 
 
