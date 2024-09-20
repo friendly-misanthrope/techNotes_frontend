@@ -7,6 +7,7 @@ import DashboardLayout from './components/DashboardLayout';
 import DashboardView from './features/auth/DashboardView';
 import NotesView from './features/notes/NotesView';
 import UsersTableView from './features/users/UsersTableView'
+import FullNoteView from './features/notes/FullNoteView';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="notes">
             <Route index element={<NotesView />} />
             {/* Todo: create page for viewing a single note in full */}
+            <Route path=":noteId" element={<FullNoteView />} />
           </Route>
           <Route path="users">
             <Route index element={<UsersTableView/>} />
