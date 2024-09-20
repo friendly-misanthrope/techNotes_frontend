@@ -9,12 +9,10 @@ const NoteRowView = ({noteId}) => {
   const note = useSelector((state) => selectNoteById(state, noteId));
   const navigate = useNavigate();
 
-  console.log(note)
-
   if (note) {
     const createdAt = new Date(note.createdAt).toLocaleString('en-US', {day: "numeric", month: "long"});
     const updatedAt = new Date(note.updatedAt).toLocaleString('en-US', {day: "numeric", month: "long"});
-    const handleEdit = () => navigate(`/dashboard/notes/${note._id}`);
+    const handleNoteEdit = () => navigate(`/dashboard/notes/${note._id}`);
 
     return (
       <tr className="table__row">
@@ -32,7 +30,7 @@ const NoteRowView = ({noteId}) => {
 
         <td className="table__cell">
           <button className="icon-button table__button"
-          onClick={handleEdit}>
+          onClick={handleNoteEdit}>
             <FontAwesomeIcon icon={faPenToSquare} />
           </button>
         </td>
