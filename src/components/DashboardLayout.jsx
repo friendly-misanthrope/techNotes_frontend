@@ -5,8 +5,8 @@ import { notesSlice } from "../features/notes/notesSlice";
 import { usersSlice } from "../features/users/usersSlice";
 import { store } from "../app/store";
 
-store.dispatch(notesSlice.endpoints.getNotes).initiate();
-store.dispatch(usersSlice.endpoints.getUsers).initiate();
+store.dispatch(notesSlice.endpoints.getNotes.initiate());
+store.dispatch(usersSlice.endpoints.getUsers.initiate());
 
 const DashboardLayout = () => {
   return (
