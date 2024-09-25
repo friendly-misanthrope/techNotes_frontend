@@ -54,7 +54,7 @@ const NotesView = () => {
               Assigned to
             </th>
             <th scope="col" className="table__th note__edit">
-              Edit
+              View
             </th>
           </tr>
         </thead>

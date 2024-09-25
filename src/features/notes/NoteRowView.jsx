@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectNoteById } from "./notesSlice";
@@ -31,7 +31,7 @@ const NoteRowView = ({noteId}) => {
         <td className="table__cell">
           <button className="icon-button table__button"
           onClick={handleNoteEdit}>
-            <FontAwesomeIcon icon={faPenToSquare} />
+            <FontAwesomeIcon icon={faEye} />
           </button>
         </td>
       </tr>

@@ -55,7 +55,7 @@ const FullNoteView = () => {
           </div>
           
           {
-            updated !== created ?
+            updatedAt !== createdAt ?
             <div className="full-card__section">
               <h3 className="card-section__header">Updated: </h3>
               <span>{updated}</span>
