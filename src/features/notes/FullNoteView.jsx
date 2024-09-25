@@ -25,40 +25,59 @@ const FullNoteView = () => {
     content
   } = noteData;
 
-  const created = new Date(createdAt).toLocaleString('en-US', {day: "numeric", month: "long"});
-  const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long"});
+  const created = new Date(createdAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
+  const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
 
   return (
     <div className="note-container">
       <div className="note-title">
         <h2>{title}</h2>
       </div>
-      <table className="table">
-        <thead>
-          <tr> 
-            <th scope="col">Status</th>
-            <th scope="col">Employee</th>
-            <th scope="col">Created</th>
-            <th scope="col">Updated</th>
-            <th scope="col">Content</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              {
-                isCompleted ?
-                  <span className="note__status--completed">Complete</span>
-                    : <span className="note__status--open">Open</span>
-              }
-            </td>
-            <td>{assignedUser?.username}</td>
-            <td>{created}</td>
-            <td>{updated}</td>
-            <td>{content}</td>
-          </tr>
-        </tbody>
-      </table>
+      <section className="full-note">
+        <article className="full-note__card">
+          <div className="full-card__section">
+            <h3 className="card-section__header">Ticket Status:</h3>
+            {
+              isCompleted ?
+                <span className="note__status--completed">Complete</span>
+                : <span className="note__status--open">Open</span>
+            }
+          </div>
+
+          <div className="full-card__section">
+            <h3 className="card-section__header">Employee: </h3>
+            <span>{assignedUser?.username}</span>
+          </div>
+
+          <div className="full-card__section">
+            <h3 className="card-section__header">Created: </h3>
+            <span>{created}</span>
+          </div>
+          
+          {
+            updated !== created ?
+            <div className="full-card__section">
+              <h3 className="card-section__header">Updated: </h3>
+              <span>{updated}</span>
+            </div>
+            : null
+          }
+
+          <div className="full-card__section">
+            <h3 className="card-section__header">Notes:</h3>
+            <textarea name="ticket-notes" rows="4" value={content} disabled></textarea>
+          </div>
+          
+          {
+            !isCompleted ?
+            <div className="full-note__buttons">
+              <button className="btn btn-primary">Edit Ticket</button>
+              <button className="btn btn-secondary">Close Ticket</button>
+            </div>
+            : null
+          }
+        </article>
+      </section>
     </div>
   );
 };

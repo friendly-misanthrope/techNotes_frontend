@@ -9,30 +9,26 @@ const NoteRowView = ({noteId}) => {
   const note = useSelector((state) => selectNoteById(state, noteId));
   const navigate = useNavigate();
 
-  const onNoteClick = () => {
-    navigate(`/dashboard/notes/${noteId}`)
-  }
-
   if (note) {
     const createdAt = new Date(note.createdAt).toLocaleString('en-US', {day: "numeric", month: "long"});
     const updatedAt = new Date(note.updatedAt).toLocaleString('en-US', {day: "numeric", month: "long"});
     const handleNoteEdit = () => navigate(`/dashboard/notes/${note._id}`);
 
     return (
-      <tr className="note-click" onClick={onNoteClick}>
-        <td>
+      <tr>
+        <td className="table__cell note__status">
           {
             note.isCompleted ?
               <span className="note__status--completed">Complete</span>
               : <span className="note__status--open">Open</span>
           }
         </td>
-        <td>{createdAt}</td>
-        <td>{updatedAt}</td>
-        <td>{note.title}</td>
-        <td>{note.assignedUser.username}</td>
+        <td className="table__cell note__created">{createdAt}</td>
+        <td className="table__cell note__updated">{updatedAt}</td>
+        <td className="table__cell note__title">{note.title}</td>
+        <td className="table__cell note__username">{note.assignedUser.username}</td>
 
-        <td>
+        <td className="table__cell">
           <button className="icon-button table__button"
           onClick={handleNoteEdit}>
             <FontAwesomeIcon icon={faPenToSquare} />
