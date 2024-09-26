@@ -17,14 +17,14 @@ const EditNoteView = () => {
     }
   }, [noteToEdit]);
 
-  const {
+  let {
     assignedUser,
     title,
     content,
     isCompleted
   } = editedNote;
 
-  assignedUser = assignedUser.username;
+  assignedUser = assignedUser?.username;
 
   const allUsers = useSelector((state) => selectAllUsers(state));
 
@@ -39,7 +39,7 @@ const EditNoteView = () => {
   return (
     <section className="note-edit">
       <form>
-        
+
         <div className="form-group">
           <label for="username">Employee:</label>
           <select

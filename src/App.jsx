@@ -8,6 +8,7 @@ import DashboardView from './features/auth/DashboardView';
 import NotesView from './features/notes/NotesView';
 import UsersTableView from './features/users/UsersTableView'
 import FullNoteView from './features/notes/FullNoteView';
+import EditNoteView from './features/notes/EditNoteView'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route index element={<NotesView />} />
             {/* Todo: create page for viewing a single note in full */}
             <Route path=":noteId" element={<FullNoteView />} />
+            <Route path=":noteId/edit" element={<EditNoteView />} />
           </Route>
           <Route path="users">
             <Route index element={<UsersTableView/>} />
