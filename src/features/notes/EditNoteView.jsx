@@ -91,7 +91,8 @@ const EditNoteView = () => {
             <div className="form-group full-card__section">
               <label htmlFor="status">Status: </label>
               {
-                <select name="isCompleted"
+                <select className="form-control"
+                name="isCompleted"
                 onChange={noteChangeHandler}
                 value={isCompleted}>
                   <option value="true" className="note__status--completed">Completed</option>
