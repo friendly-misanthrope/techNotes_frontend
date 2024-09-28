@@ -334,8 +334,21 @@ tr {
   gap: 0.5em;
 }
 
-/* Full Note Page */
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 90%;
+  margin: 0 auto;
+}
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Full Note Page */
 .note-container {
   width: 90%;
   margin: 0 auto;

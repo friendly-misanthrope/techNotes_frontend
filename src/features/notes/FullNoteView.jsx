@@ -30,9 +30,9 @@ const FullNoteView = () => {
 
   return (
     <div className="note-container">
-      <div className="note-title">
-        <h2>{title}</h2>
-      </div>
+      
+      <h2 className="note-title">{title}</h2>
+      
       <section className="full-note">
         <article className="full-note__card">
           <div className="full-card__section">
