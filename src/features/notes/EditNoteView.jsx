@@ -38,6 +38,29 @@ const EditNoteView = () => {
     ));
   }
 
+  const saveChanges = async (e) => {
+    e.preventDefault(); 
+    try {
+      await updateNote(editedNote).unwrap();
+      setEditedNote({
+        assignedUser: '',
+        title: '',
+        content: '',
+        isCompleted: ''
+      })
+      navigate(`/dashboard/notes/${noteId}`)
+    } catch(e) {
+      console.error(`Unable to update Note\n`, e)
+    }    
+  }
+
+  const cancelChanges = (e) => {
+    e.preventDefault();
+    if (window.confirm(`Are you sure you want to discard changes to ${noteToEdit?.title}?`)) {
+      navigate(`/dashboard/notes/${noteId}`)
+    }
+  }
+
   return (
     <div className="note-container">
       <h2 className="note-title">Edit Ticket</h2>
@@ -53,12 +76,12 @@ const EditNoteView = () => {
             onChange={noteChangeHandler} />
           </div>
             <div className="form-group full-card__section">
-              <label htmlFor="assignedUser">Employee:</label>
+              <label htmlFor="assignedUser">User:</label>
               <select
                 type="text"
                 className="form-control"
                 name="assignedUser"
-                value={assignedUser}
+                value={assignedUser._id}
                 onChange={noteChangeHandler}
               >
                 {employeeOptions}
@@ -68,15 +91,35 @@ const EditNoteView = () => {
             <div className="form-group full-card__section">
               <label htmlFor="status">Status: </label>
               {
-                isCompleted ?
-                  <span className="note__status--completed">Complete</span>
-                  : <span className="note__status--open">Open</span>
+                <select name="isCompleted"
+                onChange={noteChangeHandler}
+                value={isCompleted}>
+                  <option value="true" className="note__status--completed">Completed</option>
+                  <option value="false" className="note__status--open">Open</option>
+                </select>
               }
             </div>
 
             <div className="form-group full-card__section">
-
+              <label htmlFor="content">Notes:</label>
+              <textarea rows="4"
+              name="content"
+              className="form-control"
+              value={content}
+              onChange={noteChangeHandler} />
             </div>
+
+            <div className="form-group full-note__buttons">
+              <button className="btn btn-primary"
+              onClick={saveChanges}>
+                Save
+              </button>
+              <button className="btn btn-secondary"
+              onClick={cancelChanges}>
+                Cancel
+              </button>
+            </div>
+            
           </form>
         </article>
       </section>

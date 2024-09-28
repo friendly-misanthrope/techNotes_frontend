@@ -1,10 +1,9 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectNoteById } from "./notesSlice";
 import { useState, useEffect } from "react";
 
 const FullNoteView = () => {
-  const navigate = useNavigate();
   const { noteId } = useParams();
   const note = useSelector((state) => selectNoteById(state, noteId));
 
@@ -35,6 +34,7 @@ const FullNoteView = () => {
       
       <section className="full-note">
         <article className="full-note__card">
+
           <div className="full-card__section">
             <h3 className="card-section__header">Ticket Status:</h3>
             {
@@ -68,14 +68,15 @@ const FullNoteView = () => {
             <textarea name="ticket-notes" rows="4" value={content} disabled></textarea>
           </div>
           
-          {
-            !isCompleted ?
-            <div className="full-note__buttons">
-              <button className="btn btn-primary">Edit Ticket</button>
-              <button className="btn btn-secondary">Close Ticket</button>
-            </div>
-            : null
-          }
+          <div className="full-note__buttons">
+            <Link to={`/dashboard/notes/${noteId}/edit`}>
+              <button className="btn btn-primary">Edit</button>
+            </Link>
+            <Link to={`/dashboard/notes`}>
+              <button className="btn btn-secondary">Back</button>
+            </Link>
+          </div>
+          
         </article>
       </section>
     </div>

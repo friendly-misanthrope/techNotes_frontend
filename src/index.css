@@ -348,6 +348,12 @@ form {
   gap: 1rem;
 }
 
+.full-note__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
 /* Full Note Page */
 .note-container {
   width: 90%;
@@ -472,8 +478,6 @@ form {
   }
   
 }
-
-
 
 .note-title {
   text-align: center;
