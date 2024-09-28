@@ -10,7 +10,7 @@ const EditNoteView = () => {
   const noteToEdit = useSelector((state) => selectNoteById(state, noteId));
   const [updateNote, { isLoading }] = useUpdateNoteMutation();
   const [editedNote, setEditedNote] = useState({
-    assignedUser: {},
+    assignedUser: '',
     title: '',
     content: '',
     isCompleted: ''
@@ -44,8 +44,16 @@ const EditNoteView = () => {
       <section className="full-note">
         <article className="full-note__card">
           <form>
+          <div className="form-group full-card__section">
+            <label htmlFor="title">Title: </label>
+            <input type="text"
+            className="form-control"
+            name="title"
+            value={title}
+            onChange={noteChangeHandler} />
+          </div>
             <div className="form-group full-card__section">
-              <label htmlFor="username">Employee:</label>
+              <label htmlFor="assignedUser">Employee:</label>
               <select
                 type="text"
                 className="form-control"
@@ -59,12 +67,15 @@ const EditNoteView = () => {
 
             <div className="form-group full-card__section">
               <label htmlFor="status">Status: </label>
-              
               {
                 isCompleted ?
                   <span className="note__status--completed">Complete</span>
                   : <span className="note__status--open">Open</span>
               }
+            </div>
+
+            <div className="form-group full-card__section">
+
             </div>
           </form>
         </article>
