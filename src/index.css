@@ -355,6 +355,28 @@ form {
 }
 
 /* Full Note Page */
+.note-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.note-error img {
+  width: 20rem;
+  border-radius: 1rem;
+}
+
+.note-error > h2 {
+  font-size: 2rem;
+}
+
+.note-error span {
+  font-style: italic;
+}
+
 .note-container {
   width: 90%;
   margin: 0 auto;
@@ -469,6 +491,13 @@ form {
 @media screen and (min-width: 1024px) {
   .full-note__card {
     width: 50%;
+  }
+
+  .note-error img {
+    width: 35rem;
+  }
+  .note-error > h2 {
+    font-size: 2.5rem;
   }
 }
 

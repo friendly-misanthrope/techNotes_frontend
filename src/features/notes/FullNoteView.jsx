@@ -1,13 +1,14 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectNoteById } from "./notesSlice";
 import { useState, useEffect } from "react";
+import oops from '../../public/img/oops.jpg';
 
 const FullNoteView = () => {
   const { noteId } = useParams();
   const note = useSelector((state) => selectNoteById(state, noteId));
-
   const [noteData, setNoteData] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (note) {
@@ -26,6 +27,16 @@ const FullNoteView = () => {
 
   const created = new Date(createdAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
   const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
+
+  if (!note) return (
+    <div className="note-error">
+      <h2><span>Oh no! </span> We can't find that ticket.</h2>
+      <img src={oops} alt="A dog apologizing for eating the page" />
+      <button className="btn btn-primary"
+      onClick={() => navigate('/dashboard/notes')}>Go Back</button>
+    </div>
+    
+  )
 
   return (
     <div className="note-container">
@@ -76,7 +87,7 @@ const FullNoteView = () => {
               <button className="btn btn-secondary">Back</button>
             </Link>
           </div>
-          
+
         </article>
       </section>
     </div>
