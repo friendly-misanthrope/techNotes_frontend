@@ -35,7 +35,6 @@ const FullNoteView = () => {
       <button className="btn btn-primary"
       onClick={() => navigate('/dashboard/notes')}>Go Back</button>
     </div>
-    
   )
 
   return (
