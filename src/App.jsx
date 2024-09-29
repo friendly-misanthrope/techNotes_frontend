@@ -10,6 +10,8 @@ import UsersTableView from './features/users/UsersTableView'
 import FullNoteView from './features/notes/FullNoteView';
 import EditNoteView from './features/notes/EditNoteView';
 import AddNoteView from './features/notes/AddNoteView';
+import AddUserView from './features/users/AddUserView';
+import EditUserView from './features/users/EditUserView';
 
 const App = () => {
   return (
@@ -28,6 +30,8 @@ const App = () => {
           </Route>
           <Route path="users">
             <Route index element={<UsersTableView/>} />
+            <Route path="new" element={<AddUserView />} />
+            <Route path=":/userId/edit" element={<EditUserView />} />
           </Route>
         </Route>
         {/* End protected routes */}
