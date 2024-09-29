@@ -30,7 +30,7 @@ const FullNoteView = () => {
 
   if (!note) return (
     <div className="note-error">
-      <h2><span>Oh no! </span> We can't find that ticket.</h2>
+      <h2><span>Oh no!</span> We can't find that ticket.</h2>
       <img src={oops} alt="A dog apologizing for eating the page" />
       <button className="btn btn-primary"
       onClick={() => navigate('/dashboard/notes')}>Go Back</button>
