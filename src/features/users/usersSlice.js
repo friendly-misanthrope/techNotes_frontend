@@ -49,8 +49,8 @@ export const usersSlice = apiSlice.injectEndpoints({
         method: 'PATCH',
         body: {...updatedUser}
       }),
-      invalidatesTags: [
-        { type: 'User', id: 'USERSLIST' }
+      invalidatesTags: (result, error, arg) => [
+        { type: 'User', id: arg.id }
       ]
     }),
     deleteUser: builder.mutation({
