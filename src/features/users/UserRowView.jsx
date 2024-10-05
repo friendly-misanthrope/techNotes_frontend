@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUserById } from './usersSlice';
@@ -10,7 +10,7 @@ const UserRowView = ({ userId }) => {
   const navigate = useNavigate();
 
   if (user) {
-    const handleUserEdit = () => navigate(`/dashboard/users/${userId}`);
+    const onUserViewClick = () => navigate(`/dashboard/users/${userId}`);
     const userRoles = user.roles.toString().replaceAll(',', ', ');
     const isActive = user.isActive ? '' : 'table__cell--inactive';
 
@@ -18,12 +18,21 @@ const UserRowView = ({ userId }) => {
     <tr className="table__row user">
       <td className={`table__cell ${isActive}`}>{user.username}</td>
       <td className={`table__cell ${isActive}`}>{userRoles}</td>
-      <td className={`table_cell ${isActive}`}>
+      <td className={`table__cell table__status ${isActive}`}>
+        {
+
+        }
+        {
+          user.isActive ? "Active"
+            : "Inactive"
+        }
+      </td>
+      <td className={`table__cell ${isActive}`}>
         <button 
         className="icon-button table__button"
-        onClick={handleUserEdit}
+        onClick={onUserViewClick}
         >
-          <FontAwesomeIcon icon={faPenToSquare} />
+          <FontAwesomeIcon icon={faEye} />
         </button>
       </td>
     </tr>

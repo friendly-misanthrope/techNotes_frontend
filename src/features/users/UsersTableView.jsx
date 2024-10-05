@@ -43,9 +43,13 @@ const UsersTableView = () => {
             <th scope="col" className="table__th user__roles">
               Roles
             </th>
-            <th scope="col" className="table__th user__edit">
-              Edit
+            <th scope="col" className="table__th user__edit table__status">
+              Status
             </th>
+            <th scope="col" className="table__th user__edit">
+              View
+            </th>
+            
           </tr>
         </thead>
         <tbody>{usersTable}</tbody>

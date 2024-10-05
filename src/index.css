@@ -230,7 +230,9 @@ tr {
   background-color: var(--INACTIVE);
 }
 
-
+.table__status {
+  display: none;
+}
 /* ||  NOTE */
 
 .note__created,
@@ -469,6 +471,11 @@ form {
     grid-template-columns: repeat(4, 1fr) 1fr;
   }
 
+  .table--users {
+    grid-template-columns: 1fr 2fr 1fr 0.5fr;
+    border-collapse: collapse;
+  }
+
   .note__created,
   .note__updated,
   .note__username {
@@ -486,6 +493,10 @@ form {
   .full-card__section {
     flex-direction: row;
     gap: 1rem;
+  }
+
+  .table__status {
+    display: grid;
   }
 }
 
