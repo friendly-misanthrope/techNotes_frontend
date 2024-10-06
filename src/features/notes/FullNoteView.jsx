@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectNoteById } from "./notesSlice";
 import { useState, useEffect } from "react";
@@ -8,7 +8,6 @@ const FullNoteView = () => {
   const { noteId } = useParams();
   const note = useSelector((state) => selectNoteById(state, noteId));
   const [noteData, setNoteData] = useState({});
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (note) {
@@ -32,8 +31,9 @@ const FullNoteView = () => {
     <div className="note-error">
       <h2><span>Oh no!</span> We can't find that ticket.</h2>
       <img src={oops} alt="A dog apologizing for eating the page" />
-      <button className="btn btn-primary"
-      onClick={() => navigate('/dashboard/notes')}>Go Back</button>
+      <Link to={'/dashboard/notes'}>
+        <button className="btn btn-primary">Go Back</button>
+      </Link>
     </div>
   )
 

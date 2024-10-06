@@ -20,9 +20,6 @@ const UserRowView = ({ userId }) => {
       <td className={`table__cell ${isActive}`}>{userRoles}</td>
       <td className={`table__cell table__status ${isActive}`}>
         {
-
-        }
-        {
           user.isActive ? "Active"
             : "Inactive"
         }
