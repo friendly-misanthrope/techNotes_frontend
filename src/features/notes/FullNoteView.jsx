@@ -28,7 +28,7 @@ const FullNoteView = () => {
   const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
 
   if (!note) return (
-    <div className="note-error">
+    <div className="data-error">
       <h2><span>Oh no!</span> We can't find that ticket.</h2>
       <img src={oops} alt="A dog apologizing for eating the page" />
       <Link to={'/dashboard/notes'}>
