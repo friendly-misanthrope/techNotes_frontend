@@ -357,7 +357,7 @@ form {
 }
 
 /* Full Note Page */
-.note-error {
+.data-error {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -366,16 +366,16 @@ form {
   text-align: center;
 }
 
-.note-error img {
+.data-error img {
   width: 20rem;
   border-radius: 1rem;
 }
 
-.note-error > h2 {
+.data-error > h2 {
   font-size: 2rem;
 }
 
-.note-error span {
+.data-error span {
   font-style: italic;
   color: #F8871E;
 }
@@ -505,10 +505,10 @@ form {
     width: 50%;
   }
 
-  .note-error img {
+  .data-error img {
     width: 35rem;
   }
-  .note-error > h2 {
+  .data-error > h2 {
     font-size: 2.5rem;
   }
 }
