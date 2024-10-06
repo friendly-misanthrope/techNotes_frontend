@@ -27,7 +27,15 @@ const FullUserView = () => {
   const created = new Date(createdAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
   const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
 
-
+  if (!user) return (
+    <div className="note-error">
+      <h2><span>Oh no!</span> We can't find that employee.</h2>
+      <img src={oops} alt="A dog apologizing for eating the page" />
+      <Link to={'/dashboard/users'}>
+        <button className="btn btn-primary">Go Back</button>
+      </Link>
+    </div>
+  );
 
   return (
     <div>
