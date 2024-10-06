@@ -350,7 +350,7 @@ form {
   gap: 1rem;
 }
 
-.full-note__buttons {
+.full-data__buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -385,7 +385,7 @@ form {
   margin: 0 auto;
 }
 
-.full-note__card {
+.full-data__card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -433,7 +433,7 @@ form {
     font-size: 1.5rem;
   }
 
-  .full-note__card {
+  .full-data__card {
     display: flex;
     justify-content: center;
     width: 80%;
@@ -485,7 +485,7 @@ form {
   .form__action-buttons {
     position: static;
   }
-  .full-note__card {
+  .full-data__card {
     width: 60%;
     justify-content: flex-start;
   }
@@ -501,7 +501,7 @@ form {
 }
 
 @media screen and (min-width: 1024px) {
-  .full-note__card {
+  .full-data__card {
     width: 50%;
   }
 
@@ -514,7 +514,7 @@ form {
 }
 
 @media screen and (min-width: 1280px) {
-  .full-note__card {
+  .full-data__card {
     width: 38%;
   }
   

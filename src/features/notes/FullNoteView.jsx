@@ -43,7 +43,7 @@ const FullNoteView = () => {
       <h2 className="data-title">{title}</h2>
       
       <section className="full-note">
-        <article className="full-note__card">
+        <article className="full-data__card">
 
           <div className="full-card__section">
             <h3 className="card-section__header">Ticket Status:</h3>
@@ -78,7 +78,7 @@ const FullNoteView = () => {
             <textarea name="ticket-notes" rows="4" value={content} disabled></textarea>
           </div>
           
-          <div className="full-note__buttons">
+          <div className="full-data__buttons">
             <Link to={`/dashboard/notes/${noteId}/edit`}>
               <button className="btn btn-primary">Edit</button>
             </Link>
