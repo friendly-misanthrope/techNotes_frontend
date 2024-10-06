@@ -40,7 +40,7 @@ const FullNoteView = () => {
   return (
     <div className="data-container">
       
-      <h2 className="note-title">{title}</h2>
+      <h2 className="data-title">{title}</h2>
       
       <section className="full-note">
         <article className="full-note__card">
