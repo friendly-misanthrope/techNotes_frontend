@@ -38,7 +38,7 @@ const FullNoteView = () => {
   )
 
   return (
-    <div className="note-container">
+    <div className="data-container">
       
       <h2 className="note-title">{title}</h2>
       
