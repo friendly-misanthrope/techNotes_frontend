@@ -34,7 +34,7 @@ const UsersTableView = () => {
       : null;
 
     content = (
-      <table className="table table--users">
+      <table className="table table-hover table--users">
         <thead className="table__thead">
           <tr>
             <th scope="col" className="table__th user__username">

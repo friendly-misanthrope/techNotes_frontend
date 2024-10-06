@@ -17,8 +17,10 @@ const FullUserView = () => {
 
   const {
     username,
+    //todo: map over roles and display each string value
     roles,
     isActive,
+    //todo: map over notes & display each note title as a link
     notes,
     createdAt,
     updatedAt
@@ -28,7 +30,7 @@ const FullUserView = () => {
   const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
 
   if (!user) return (
-    <div className="note-error">
+    <div className="data-error">
       <h2><span>Oh no!</span> We can't find that employee.</h2>
       <img src={oops} alt="A dog apologizing for eating the page" />
       <Link to={'/dashboard/users'}>
@@ -38,8 +40,8 @@ const FullUserView = () => {
   );
 
   return (
-    <div>
-      Full User View
+    <div className='data-container'>
+      <h2 className="data-title">Employee: {username}</h2>
     </div>
   );
 }
