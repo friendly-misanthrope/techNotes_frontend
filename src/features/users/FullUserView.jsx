@@ -42,6 +42,18 @@ const FullUserView = () => {
   return (
     <div className='data-container'>
       <h2 className="data-title">Employee: {username}</h2>
+      <section className="full-card">
+        <article className="full-data__card">
+          <div className="full-card__section">
+            <h3 className="card-section__header">User Status:</h3>
+            {
+              isActive ?
+              <span className="note__status--completed">Active</span>
+              : <span className="note__status--open">Inactive</span>
+            }
+          </div>
+        </article>
+      </section>
     </div>
   );
 }
