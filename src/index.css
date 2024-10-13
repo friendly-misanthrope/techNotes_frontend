@@ -356,7 +356,7 @@ form {
   gap: 1rem;
 }
 
-/* Full Note Page */
+/* Full Card Section */
 .data-error {
   display: flex;
   flex-direction: column;
@@ -417,6 +417,14 @@ form {
 .card-section__header {
   margin: 0;
   font-weight: bold;
+}
+
+.user-roles ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  margin: 0.5rem auto;
+  list-style-type: none;
 }
 
 

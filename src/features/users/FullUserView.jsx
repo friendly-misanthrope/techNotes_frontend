@@ -8,16 +8,10 @@ const FullUserView = () => {
   const { userId } = useParams();
   const user = useSelector((state) => selectUserById(state, userId));
   const [userData, setUserData] = useState({});
-
-  useEffect(() => {
-    if (user) {
-      setUserData(user);
-    }
-  },[user]);
+  const [userRoles, setUserRoles] = useState([]);
 
   const {
     username,
-    //todo: map over roles and display each string value
     roles,
     isActive,
     //todo: map over notes & display each note title as a link
@@ -25,6 +19,22 @@ const FullUserView = () => {
     createdAt,
     updatedAt
   } = userData;
+
+  useEffect(() => {
+    if (user) {
+      setUserData(user);
+    }
+  },[user]);
+
+  const rolesContent = roles?.includes("admin") ?
+  (
+    <li>{"Administrator"}</li>
+  )
+    : roles.includes("manager") ?
+    (
+      <li>{"Manager"}</li>
+    )
+      : <li>{"Employee"}</li>
 
   const created = new Date(createdAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
   const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
@@ -55,14 +65,10 @@ const FullUserView = () => {
           </div>
 
           <div className="full-card__section">
-            <h3 className="card-section__header">Roles:</h3>
+            <h3 className="card-section__header">Role: </h3>
             <div className="user-roles">
               <ul>
-                {
-                  roles?.map((role) => (
-                    <li>{role}</li>
-                  ))
-                }
+                { rolesContent }
               </ul>
             </div>
           </div>
