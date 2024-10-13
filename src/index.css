@@ -419,12 +419,24 @@ form {
   font-weight: bold;
 }
 
-.user-roles ul {
+.user-list ul {
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
   margin: 0.5rem auto;
   list-style-type: none;
+}
+
+.user-list li {
+  margin: 0.5rem auto;
+}
+
+.user-list a {
+  color: #0000EE;
+}
+
+.user-list a:hover {
+  color: #000;
 }
 
 

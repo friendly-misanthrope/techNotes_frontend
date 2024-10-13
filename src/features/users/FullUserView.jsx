@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUserById } from './usersSlice';
+import { selectAllNotes } from '../notes/notesSlice';
 import { useState, useEffect } from 'react';
 import oops from '../../public/img/oops.jpg';
 
@@ -8,7 +9,12 @@ const FullUserView = () => {
   const { userId } = useParams();
   const user = useSelector((state) => selectUserById(state, userId));
   const [userData, setUserData] = useState({});
-  const [userRoles, setUserRoles] = useState([]);
+
+  useEffect(() => {
+    if (user) {
+      setUserData(user);
+    }
+  },[user]);
 
   const {
     username,
@@ -20,24 +26,34 @@ const FullUserView = () => {
     updatedAt
   } = userData;
 
-  useEffect(() => {
-    if (user) {
-      setUserData(user);
-    }
-  },[user]);
+  const allNotes = useSelector((state) => selectAllNotes(state))
+  const userNotes = allNotes.filter((note) => notes?.includes(note.id))
+
+  const created = new Date(createdAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
+  const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
 
   const rolesContent = roles?.includes("admin") ?
   (
     <li>{"Administrator"}</li>
   )
-    : roles.includes("manager") ?
+    : roles?.includes("manager") ?
     (
       <li>{"Manager"}</li>
     )
       : <li>{"Employee"}</li>
-
-  const created = new Date(createdAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
-  const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
+  
+  const notesContent = userNotes.map((note) => (
+    <li key={note.id}>
+      <Link to={`/dashboard/notes/${note.id}`}>{note.title}</Link> - Status: &nbsp;
+      
+        {
+          note.isCompleted?
+            <span className="note__status--completed">Complete</span>
+            : <span className="note__status--open">Open</span>
+        }
+      
+    </li>
+  ))
 
   if (!user) return (
     <div className="data-error">
@@ -65,12 +81,22 @@ const FullUserView = () => {
           </div>
 
           <div className="full-card__section">
-            <h3 className="card-section__header">Role: </h3>
-            <div className="user-roles">
+            <h3 className="card-section__header">Role:</h3>
+            <div className="user-list">
               <ul>
                 { rolesContent }
               </ul>
             </div>
+          </div>
+
+          <div className="full-card__section">
+            <h3 className="card-section__header">Tickets:</h3>
+            <div className="user-list">
+              <ul>
+                { notesContent }
+              </ul>
+            </div>
+            
           </div>
         </article>
       </section>
