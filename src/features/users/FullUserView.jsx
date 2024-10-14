@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUserById } from './usersSlice';
 import { selectAllNotes } from '../notes/notesSlice';
@@ -7,6 +7,7 @@ import oops from '../../public/img/oops.jpg';
 
 const FullUserView = () => {
   const { userId } = useParams();
+  const navigate = useNavigate();
   const user = useSelector((state) => selectUserById(state, userId));
   const [userData, setUserData] = useState({});
 
@@ -103,6 +104,18 @@ const FullUserView = () => {
                       { notesContent }
                     </ul>
               }
+            </div>
+
+            <div className="full-data__buttons">
+              <Link to={`/dashboard/users/${user._id}/edit`}>
+                <button className="btn btn-primary">Edit</button>
+              </Link>
+              <Link>
+                <button className="btn btn-secondary"
+                onClick={() => navigate(-1)}>
+                  Back
+                </button>
+              </Link>
             </div>
 
             
