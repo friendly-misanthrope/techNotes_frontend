@@ -1,7 +1,9 @@
 import { createSelector, createEntityAdapter } from '@reduxjs/toolkit';
 import { apiSlice } from '../../app/api/apiSlice';
 
-const usersAdapter = createEntityAdapter({});
+const usersAdapter = createEntityAdapter({
+  selectId: (user) => user._id
+});
 
 const initialState = usersAdapter.getInitialState();
 
@@ -14,11 +16,7 @@ export const usersSlice = apiSlice.injectEndpoints({
       },
       keepUnusedDataFor: 5,
       transformResponse: (usersData) => {
-        const loadedUsers = usersData.map((user) => {
-          user.id = user._id;
-          return user;
-        });
-        return usersAdapter.setAll(initialState, loadedUsers);
+        return usersAdapter.setAll(initialState, usersData);
       },
       providesTags: (result, error, arg) => {
         if (result?.ids) {

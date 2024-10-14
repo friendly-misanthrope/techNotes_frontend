@@ -8,7 +8,8 @@ const notesAdapter = createEntityAdapter({
     } else if (a.isCompleted) {
       return 1;
     } else return -1
-  }
+  },
+  selectId: (note) => note._id
 });
 
 const initialState = notesAdapter.getInitialState();
@@ -16,17 +17,13 @@ const initialState = notesAdapter.getInitialState();
 export const notesSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getNotes: builder.query({
-      query: () => '/notes',
+      query: () => ({url: '/notes'}),
       validateStatus: (response, result) => {
         return response.status === 200 && !result.isError
       },
       keepUnusedDataFor: 5,
       transformResponse: (notesData) => {
-        const loadedNotes = notesData.map((note) => {
-          note.id = note._id;
-          return note;
-        });
-        return notesAdapter.setAll(initialState, loadedNotes);
+        return notesAdapter.setAll(initialState, notesData);
       },
       providesTags: (result, error, arg) => {
         if (result?.ids) {
