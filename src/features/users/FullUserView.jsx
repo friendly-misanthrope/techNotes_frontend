@@ -94,9 +94,15 @@ const FullUserView = () => {
           <div className="full-card__section">
             <h3 className="card-section__header">Tickets:</h3>
             <div className="user-list user-notes">
-              <ul>
-                { notesContent }
-              </ul>
+              {
+                !userNotes.length ?
+                  <p className="empty-notes">
+                    {user.username} doesn't have any notes assigned yet.
+                  </p>
+                  : <ul>
+                      { notesContent }
+                    </ul>
+              }
             </div>
 
             
