@@ -62,10 +62,10 @@ const EditNoteView = () => {
   }
 
   return (
-    <div className="note-container">
-      <h2 className="note-title">Edit Ticket</h2>
-      <section className="full-note">
-        <article className="full-note__card">
+    <div className="data-container">
+      <h2 className="data-title">Edit Ticket</h2>
+      <section className="full-card">
+        <article className="full-data__card">
           <form>
           <div className="form-group full-card__section">
             <label htmlFor="title">Title: </label>
@@ -110,7 +110,7 @@ const EditNoteView = () => {
               onChange={noteChangeHandler} />
             </div>
 
-            <div className="form-group full-note__buttons">
+            <div className="form-group full-data__buttons">
               <button className="btn btn-primary"
               onClick={saveChanges}>
                 Save
