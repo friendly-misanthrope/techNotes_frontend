@@ -439,6 +439,24 @@ form {
   color: #000;
 }
 
+.user-card__footer p {
+  margin: 0 auto;
+}
+
+.user-card__footer {
+  text-align: center;
+  margin: 20% auto 0;
+}
+
+.user-notes {
+  height: 15%;
+  overflow: auto;
+  width: 80%;
+}
+
+li span {
+  display: block;
+}
 
 @media screen and (min-width: 360px) {
   h1 {

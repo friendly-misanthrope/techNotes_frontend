@@ -20,14 +20,13 @@ const FullUserView = () => {
     username,
     roles,
     isActive,
-    //todo: map over notes & display each note title as a link
     notes,
     createdAt,
     updatedAt
   } = userData;
 
   const allNotes = useSelector((state) => selectAllNotes(state))
-  const userNotes = allNotes.filter((note) => notes?.includes(note.id))
+  const userNotes = allNotes.filter((note) => notes?.includes(note._id))
 
   const created = new Date(createdAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
   const updated = new Date(updatedAt).toLocaleString('en-US', {day: "numeric", month: "long", year: "numeric"});
@@ -43,15 +42,18 @@ const FullUserView = () => {
       : <li>{"Employee"}</li>
   
   const notesContent = userNotes.map((note) => (
-    <li key={note.id}>
-      <Link to={`/dashboard/notes/${note.id}`}>{note.title}</Link> - Status: &nbsp;
+    <li key={note._id}>
+      {
+        note.title.length < 22 ?
+        <Link to={`/dashboard/notes/${note._id}`}>{note.title}</Link>
+          : <Link to={`/dashboard/notes/${note._id}`}>{note.title.substring(21)}</Link>
+      }
       
         {
           note.isCompleted?
             <span className="note__status--completed">Complete</span>
             : <span className="note__status--open">Open</span>
         }
-      
     </li>
   ))
 
@@ -91,14 +93,22 @@ const FullUserView = () => {
 
           <div className="full-card__section">
             <h3 className="card-section__header">Tickets:</h3>
-            <div className="user-list">
+            <div className="user-list user-notes">
               <ul>
                 { notesContent }
               </ul>
             </div>
+
+            
             
           </div>
         </article>
+        
+        <div className="user-card__footer">
+          <p>Created { created }</p>
+          <p>Last updated { updated }</p>
+        </div>
+        
       </section>
     </div>
   );
