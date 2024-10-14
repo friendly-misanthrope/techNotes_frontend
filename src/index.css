@@ -428,7 +428,7 @@ form {
 }
 
 .user-list li {
-  margin: 0.5rem auto;
+  margin: 0 0.5rem;
 }
 
 .user-list a {
@@ -437,6 +437,10 @@ form {
 
 .user-list a:hover {
   color: #000;
+}
+
+.user-list > .role {
+  margin: 0 auto;
 }
 
 .user-card__footer p {
@@ -449,9 +453,9 @@ form {
 }
 
 .user-notes {
-  height: 15%;
-  overflow: auto;
-  width: 80%;
+  max-height: 15rem;
+  overflow: hidden scroll;
+  width: 100%;
 }
 
 li span {
