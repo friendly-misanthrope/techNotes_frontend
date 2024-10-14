@@ -8,7 +8,7 @@ const EditNoteView = () => {
   const { noteId } = useParams();
   const navigate = useNavigate();
   const noteToEdit = useSelector((state) => selectNoteById(state, noteId));
-  const [updateNote, { isLoading }] = useUpdateNoteMutation();
+  const [updateNote] = useUpdateNoteMutation();
   const [editedNote, setEditedNote] = useState({
     assignedUser: '',
     title: '',
