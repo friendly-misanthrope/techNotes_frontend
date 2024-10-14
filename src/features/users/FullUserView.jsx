@@ -44,9 +44,9 @@ const FullUserView = () => {
   const notesContent = userNotes.map((note) => (
     <li key={note._id}>
       {
-        note.title.length < 22 ?
+        note.title.length < 16 ?
         <Link to={`/dashboard/notes/${note._id}`}>{note.title}</Link>
-          : <Link to={`/dashboard/notes/${note._id}`}>{note.title.substring(21)}</Link>
+          : <Link to={`/dashboard/notes/${note._id}`}>{note.title.substring(0,15)}...</Link>
       }
       
         {
@@ -85,7 +85,7 @@ const FullUserView = () => {
           <div className="full-card__section">
             <h3 className="card-section__header">Role:</h3>
             <div className="user-list">
-              <ul>
+              <ul className='role'>
                 { rolesContent }
               </ul>
             </div>
