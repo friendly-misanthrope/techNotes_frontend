@@ -350,6 +350,10 @@ form {
   gap: 1rem;
 }
 
+.ticket-notes {
+  min-width: 100%
+}
+
 .full-data__buttons {
   display: flex;
   justify-content: center;

@@ -68,7 +68,8 @@ const EditNoteView = () => {
         <article className="full-data__card">
           <form>
           <div className="form-group full-card__section">
-            <label htmlFor="title">Title: </label>
+            <label htmlFor="title"
+              className="card-section__header">Title: </label>
             <input type="text"
             className="form-control"
             name="title"
@@ -76,7 +77,8 @@ const EditNoteView = () => {
             onChange={noteChangeHandler} />
           </div>
             <div className="form-group full-card__section">
-              <label htmlFor="assignedUser">User:</label>
+              <label htmlFor="assignedUser"
+              className="card-section__header">User:</label>
               <select
                 type="text"
                 className="form-control"
@@ -89,7 +91,8 @@ const EditNoteView = () => {
             </div>
 
             <div className="form-group full-card__section">
-              <label htmlFor="status">Status: </label>
+              <label htmlFor="status"
+              className="card-section__header">Status: </label>
               {
                 <select className="form-control"
                 name="isCompleted"
@@ -102,10 +105,11 @@ const EditNoteView = () => {
             </div>
 
             <div className="form-group full-card__section">
-              <label htmlFor="content">Notes:</label>
+              <label htmlFor="content"
+              className="card-section__header">Notes:</label>
               <textarea rows="4"
               name="content"
-              className="form-control"
+              className="form-control ticket-notes"
               value={content}
               onChange={noteChangeHandler} />
             </div>
