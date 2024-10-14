@@ -453,6 +453,7 @@ form {
 }
 
 .user-notes {
+  margin: 0 auto 1rem;
   max-height: 15rem;
   overflow: hidden scroll;
   width: 100%;
