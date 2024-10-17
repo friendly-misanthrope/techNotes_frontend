@@ -110,13 +110,35 @@ const AddUserView = () => {
           <form>
             {/* Username input */}
             <div className="form-group full-card__section">
-              <label htmlFor="username">Username:</label>
+              <label htmlFor="username"
+              className="card-section__header">Username:</label>
               <input type="text"
               className="form-control"
               name="username"
               value={username}
               onChange={userChangeHandler} />
             </div>
+
+            <div className="form-group full-card__section">
+              <label htmlFor="password"
+              className="card-section__header">Password:</label>
+              <input type="text"
+              className="form-control"
+              name="password"
+              value={password}
+              onChange={userChangeHandler} />
+            </div>
+
+            <div className="form-group full-card__section">
+              <label htmlFor="confirmPassword"
+              className="card-section__header">Confirm Password:</label>
+              <input type="text"
+              className="form-control"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={userChangeHandler} />
+            </div>
+
             
           </form>
         </article>
