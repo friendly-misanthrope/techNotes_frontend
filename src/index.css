@@ -350,6 +350,11 @@ form {
   gap: 1rem;
 }
 
+.inputErr {
+  font-size: 0.8rem;
+  color: red;
+}
+
 .ticket-notes {
   min-width: 100%
 }
@@ -410,7 +415,7 @@ form {
   gap: 1rem;
 }
 
-.full-card__section > span {
+.full-card__section .data-view {
   font-size: 1.6rem;
 }
 
