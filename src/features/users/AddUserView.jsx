@@ -7,13 +7,17 @@ const USER_REGEX = /^[A-z0-9]{4,24}$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{8,32}$/;
 
 const AddUserView = () => {
+
+  // RTKQ addNewUser mutation & status object
   const [addNewUser, { isLoading, isSuccess, isError, error }] =
     useAddNewUserMutation();
 
   const navigate = useNavigate();
 
+  // user roles state array
   const [roles, setRoles] = useState([]);
 
+  // user state object
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -22,17 +26,21 @@ const AddUserView = () => {
 
   const { username, password, confirmPassword } = user;
 
+  // Boolean state values for username/password validation
   const [validUsername, setValidUsername] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
 
+  // Side effect for testing username input against REGEX pattern
   useEffect(() => {
     setValidUsername(USER_REGEX.test(username));
   }, [username]);
 
+  // Side effect for testing password input against REGEX pattern
   useEffect(() => {
     setValidPassword(PWD_REGEX.test(password));
   }, [password]);
 
+  // onChange event handler for username, password, and confirmPassword
   const userChangeHandler = (e) => {
     setUser((prevState) => ({
       ...prevState,
@@ -40,6 +48,7 @@ const AddUserView = () => {
     }));
   };
 
+  // onChange event handler for user roles
   const rolesChangeHandler = (e) => {
     const userRoles = Array.from(
       e.target.selectedOptions,
@@ -48,6 +57,7 @@ const AddUserView = () => {
     setRoles(userRoles)
   };
 
+  // Form input validations
   const validConfirmPassword = password === confirmPassword;
 
   const userDataValid = [
@@ -55,8 +65,9 @@ const AddUserView = () => {
     validUsername,
     validPassword,
     validConfirmPassword,
-  ].every(Boolean);
+  ].every(Boolean) && !isLoading;
 
+  // onClick event handler for saving user
   const saveUser = async (e) => {
     e.preventDefault();
     if (userDataValid) {
@@ -73,6 +84,7 @@ const AddUserView = () => {
     }
   };
 
+  // select options content
   const rolesOptions = Object.values(EMPLOYEE_ROLES).map(
     (role) => (
       <option key={role} value={role}>
@@ -81,9 +93,16 @@ const AddUserView = () => {
     )
   )
 
-  return (
-    <div>
+  // error message classNames
+  const errMsg = isError ? "errmsg" : "offscreen"
+  const usernameIsValid = !validUsername ? "form__input--incomplete" : ""
+  const pwdIsValid = !validPassword ? "form__input--incomplete" : ""
+  const rolesIsValid = !roles.length ? "form__input--incomplete" : ""
 
+
+  return (
+    <div className="data-container">
+      
     </div>
   );
 };
