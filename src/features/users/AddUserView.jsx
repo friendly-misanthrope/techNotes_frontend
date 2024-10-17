@@ -70,18 +70,21 @@ const AddUserView = () => {
   // onClick event handler for saving user
   const saveUser = async (e) => {
     e.preventDefault();
-    if (userDataValid) {
-      await addNewUser({ username, password, confirmPassword, roles });
+    try {
+      if (userDataValid) {
+        await addNewUser({ username, password, confirmPassword, roles });
+        setUser({
+          username: '',
+          password: '',
+          confirmPassword: ''
+        })
+        setRoles([])
+        navigate('/dashboard/users')
+      }
+    } catch(e) {
+      console.error(`Unable to add user\nerror: ${e}`)
     }
-    if (isSuccess) {
-      setUser({
-        username: '',
-        password: '',
-        confirmPassword: ''
-      })
-      setRoles([])
-      navigate('/dashboard/users')
-    }
+    
   };
 
   // select options content
