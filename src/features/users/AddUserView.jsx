@@ -95,7 +95,7 @@ const AddUserView = () => {
 
   // error message classNames
   const errMsg = isError ? "errmsg" : "offscreen"
-  const usernameIsValid = !validUsername ? "form__input--incomplete" : ""
+  const usernameInvalid = !validUsername && username.length ? "form__input--incomplete" : ""
   const pwdIsValid = !validPassword ? "form__input--incomplete" : ""
   const rolesIsValid = !roles.length ? "form__input--incomplete" : ""
 
@@ -108,15 +108,23 @@ const AddUserView = () => {
       <section className="full-card">
         <article className="full-data__card">
           <form>
+
             {/* Username input */}
             <div className="form-group full-card__section">
               <label htmlFor="username"
               className="card-section__header">Username:</label>
               <input type="text"
-              className="form-control"
+              className={`form-control ${usernameInvalid}`} 
               name="username"
               value={username}
               onChange={userChangeHandler} />
+              {
+                username.length && usernameInvalid ?
+                  <span className="inputErr">
+                    Username must be at least 4 characters
+                  </span>
+                  : null
+              }
             </div>
 
             <div className="form-group full-card__section">
@@ -139,7 +147,29 @@ const AddUserView = () => {
               onChange={userChangeHandler} />
             </div>
 
-            
+            <div className="form-group full-card__section">
+              <label htmlFor="roles"
+              className="card-section__header">Role:</label>
+              <select name="roles"
+              className="form-control"
+              value={roles}
+              multiple={true}
+              onChange={rolesChangeHandler}>
+                {rolesOptions}
+              </select>
+            </div>
+
+            <div className="form-group full-data-buttons">
+              <button className="btn btn-primary"
+              onClick={saveUser}>
+                Save
+              </button>
+              
+              <button className="btn btn-secondary"
+              onClick={() => navigate('/dashboard/users')}>
+                Cancel
+              </button>
+            </div>
           </form>
         </article>
       </section>
