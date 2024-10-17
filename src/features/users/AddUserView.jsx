@@ -102,7 +102,25 @@ const AddUserView = () => {
 
   return (
     <div className="data-container">
-      
+      <h2 className="data-title">New User</h2>
+      <p className={errMsg}>{error?.data?.message}</p>
+
+      <section className="full-card">
+        <article className="full-data__card">
+          <form>
+            {/* Username input */}
+            <div className="form-group full-card__section">
+              <label htmlFor="username">Username:</label>
+              <input type="text"
+              className="form-control"
+              name="username"
+              value={username}
+              onChange={userChangeHandler} />
+            </div>
+            
+          </form>
+        </article>
+      </section>
     </div>
   );
 };
