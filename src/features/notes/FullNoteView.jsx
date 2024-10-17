@@ -50,26 +50,26 @@ const FullNoteView = () => {
             <h3 className="card-section__header">Ticket Status:</h3>
             {
               isCompleted ?
-                <span className="note__status--completed">Complete</span>
-                : <span className="note__status--open">Open</span>
+                <span className="data-view note__status--completed">Complete</span>
+                : <span className="data-view note__status--open">Open</span>
             }
           </div>
 
           <div className="full-card__section">
             <h3 className="card-section__header">Employee: </h3>
-            <span>{assignedUser?.username}</span>
+            <span className="data-view">{assignedUser?.username}</span>
           </div>
 
           <div className="full-card__section">
             <h3 className="card-section__header">Created: </h3>
-            <span>{created}</span>
+            <span className="data-view">{created}</span>
           </div>
           
           {
             updatedAt !== createdAt ?
             <div className="full-card__section">
               <h3 className="card-section__header">Updated: </h3>
-              <span>{updated}</span>
+              <span className="data-view">{updated}</span>
             </div>
             : null
           }
