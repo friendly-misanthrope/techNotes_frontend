@@ -99,8 +99,8 @@ const AddUserView = () => {
   // error message classNames
   const errMsg = isError ? "errmsg" : "offscreen"
   const usernameInvalid = !validUsername && username.length ? "form__input--incomplete" : ""
-  const pwdIsValid = !validPassword ? "form__input--incomplete" : ""
-  const rolesIsValid = !roles.length ? "form__input--incomplete" : ""
+  const pwdInvalid = !validPassword ? "form__input--incomplete" : ""
+  const rolesInvalid = !roles.length ? "form__input--incomplete" : ""
 
 
   return (
@@ -124,7 +124,7 @@ const AddUserView = () => {
               {
                 username.length && usernameInvalid ?
                   <span className="inputErr">
-                    Username must be at least 4 characters
+                    Username must be 4-24 characters
                   </span>
                   : null
               }
@@ -133,21 +133,35 @@ const AddUserView = () => {
             <div className="form-group full-card__section">
               <label htmlFor="password"
               className="card-section__header">Password:</label>
-              <input type="text"
+              <input type="password"
               className="form-control"
               name="password"
               value={password}
               onChange={userChangeHandler} />
+              {
+                password.length && pwdInvalid ?
+                <span className="inputErr">
+                  Password must be 8-24 characters
+                </span>
+                : null
+              }
             </div>
 
             <div className="form-group full-card__section">
               <label htmlFor="confirmPassword"
               className="card-section__header">Confirm Password:</label>
-              <input type="text"
+              <input type="password"
               className="form-control"
               name="confirmPassword"
               value={confirmPassword}
               onChange={userChangeHandler} />
+              {
+                confirmPassword.length && !validConfirmPassword ?
+                <span className="inputErr">
+                  Passwords must match
+                </span>
+                : null
+              }
             </div>
 
             <div className="form-group full-card__section">
