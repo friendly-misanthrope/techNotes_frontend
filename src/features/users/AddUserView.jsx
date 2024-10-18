@@ -3,8 +3,8 @@ import { useAddNewUserMutation } from "./usersSlice";
 import { useNavigate } from "react-router-dom";
 import { EMPLOYEE_ROLES } from "../../config/roles";
 
-const USER_REGEX = /^[A-z0-9]{4,24}$/;
-const PWD_REGEX = /^[A-z0-9!@#$%]{8,32}$/;
+const USER_REGEX = /^[A-z0-9_-]{4,24}$/;
+const PWD_REGEX = /^[A-z0-9!@#$%^&*()-_+=\\|/;'<>`~]{8,32}$/;
 
 const AddUserView = () => {
 
@@ -121,14 +121,15 @@ const AddUserView = () => {
               name="username"
               value={username}
               onChange={userChangeHandler} />
-              {
+              
+            </div>
+            {
                 username.length && usernameInvalid ?
                   <span className="inputErr">
                     Username must be 4-24 characters
                   </span>
                   : null
               }
-            </div>
 
             <div className="form-group full-card__section">
               <label htmlFor="password"
