@@ -47,7 +47,7 @@ const AddUserView = () => {
       setRoles([])
       navigate('/dashboard/users')
     }
-  })
+  },[isSuccess, navigate])
 
   // onChange event handler for username, password, and confirmPassword
   const userChangeHandler = (e) => {
