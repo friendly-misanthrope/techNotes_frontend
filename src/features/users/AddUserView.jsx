@@ -13,11 +13,7 @@ const AddUserView = () => {
     useAddNewUserMutation();
 
   const navigate = useNavigate();
-
-  // user roles state array
   const [roles, setRoles] = useState([]);
-
-  // user state object
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -30,15 +26,27 @@ const AddUserView = () => {
   const [validUsername, setValidUsername] = useState(false);
   const [validPassword, setValidPassword] = useState(false);
 
-  // Side effect for testing username input against REGEX pattern
+  // Side effects for testing username & password
+  // inputs against REGEX pattern
   useEffect(() => {
     setValidUsername(USER_REGEX.test(username));
   }, [username]);
 
-  // Side effect for testing password input against REGEX pattern
   useEffect(() => {
     setValidPassword(PWD_REGEX.test(password));
   }, [password]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      setUser({
+        username: '',
+        password: '',
+        confirmPassword: ''
+      })
+      setRoles([])
+      navigate('/dashboard/users')
+    }
+  })
 
   // onChange event handler for username, password, and confirmPassword
   const userChangeHandler = (e) => {
@@ -70,21 +78,9 @@ const AddUserView = () => {
   // onClick event handler for saving user
   const saveUser = async (e) => {
     e.preventDefault();
-    try {
-      if (userDataValid) {
-        await addNewUser({ username, password, confirmPassword, roles });
-        setUser({
-          username: '',
-          password: '',
-          confirmPassword: ''
-        })
-        setRoles([])
-        navigate('/dashboard/users')
-      }
-    } catch(e) {
-      console.error(`Unable to add user\nerror: ${e}`)
+    if (userDataValid) {
+      await addNewUser({ username, password, confirmPassword, roles });
     }
-    
   };
 
   // select options content
