@@ -36,6 +36,7 @@ const AddUserView = () => {
     setValidPassword(PWD_REGEX.test(password));
   }, [password]);
 
+// Reset component state & redirect to /users upon successful POST
   useEffect(() => {
     if (isSuccess) {
       setUser({
@@ -127,6 +128,7 @@ const AddUserView = () => {
                   : null
               }
 
+            {/* Password input */}
             <div className="form-group full-card__section">
               <label htmlFor="password"
               className="card-section__header">Password:</label>
@@ -143,7 +145,8 @@ const AddUserView = () => {
                 : null
               }
             </div>
-
+            
+            {/* Confirm Password input */}
             <div className="form-group full-card__section">
               <label htmlFor="confirmPassword"
               className="card-section__header">Confirm Password:</label>
@@ -161,6 +164,7 @@ const AddUserView = () => {
               }
             </div>
 
+            {/* Roles select menu */}
             <div className="form-group full-card__section">
               <label htmlFor="roles"
               className="card-section__header">Role:</label>
@@ -171,8 +175,14 @@ const AddUserView = () => {
               onChange={rolesChangeHandler}>
                 {rolesOptions}
               </select>
+              {
+                rolesInvalid ?
+                  <span className="inputErr">At least one role must be selected</span>
+                  : null
+              }
             </div>
-
+            
+            {/* Save and cancel buttons */}
             <div className="form-group full-data-buttons">
               <button className="btn btn-primary"
               onClick={saveUser}>
