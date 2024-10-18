@@ -99,6 +99,29 @@ a:hover,
 a:focus-visible {
   color: var(--LINK-HOVER);
 }
+
+h1 {
+  font-size: 2rem;
+}
+
+.dash-header__nav {
+  gap: 0;
+}
+
+.icon-button {
+  font-size: 1.5rem;
+}
+
+.full-data__card {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.full-card__section {
+  flex-direction: column;
+  gap: 0;
+}
 /* || PAGES */
 
 .public,
@@ -339,6 +362,7 @@ tr {
 .form-group {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   width: 90%;
   margin: 0 auto;
@@ -403,7 +427,7 @@ form {
   background-color: #e9ecef;
   border-radius: 0.75rem;
   color: #000;
-  width: 50%;
+  width: 90%;
   margin: 0 auto;
   overflow: hidden;
   text-align: center;
@@ -411,8 +435,8 @@ form {
 
 .full-card__section {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  align-items: flex-start;
+  gap: 0;
 }
 
 .full-card__section .data-view {
@@ -472,31 +496,6 @@ li span {
   display: block;
 }
 
-@media screen and (min-width: 360px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .dash-header__nav {
-    gap: 0;
-  }
-
-  .icon-button {
-    font-size: 1.5rem;
-  }
-
-  .full-data__card {
-    display: flex;
-    justify-content: center;
-    width: 80%;
-  }
-
-  .full-card__section {
-    flex-direction: column;
-    gap: 0;
-  }
-}
-
 @media screen and (min-width: 768px) {
 
   body {
@@ -540,11 +539,6 @@ li span {
   .full-data__card {
     width: 60%;
     justify-content: flex-start;
-  }
-
-  .full-card__section {
-    flex-direction: row;
-    gap: 1rem;
   }
 
   .table__status {
