@@ -118,15 +118,14 @@ const AddUserView = () => {
               name="username"
               value={username}
               onChange={userChangeHandler} />
-              
-            </div>
-            {
+              {
                 username.length && usernameInvalid ?
                   <span className="inputErr">
                     Username must be 4-24 characters
                   </span>
                   : null
               }
+            </div>
 
             {/* Password input */}
             <div className="form-group full-card__section">
